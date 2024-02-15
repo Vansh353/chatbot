@@ -1,6 +1,6 @@
 {
   "routes": [
     { "handle": "filesystem" },
-    { "src": "/api/fetchBookInfo", "dest": "api/fetchBookInfo.js" }
+    { "src": "api/bookScraper.js", "dest": "api/bookScraper.js" }
   ]
 }

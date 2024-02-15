@@ -1,0 +1,6 @@
+{
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/api/fetchBookInfo", "dest": "api/fetchBookInfo.js" }
+  ]
+}

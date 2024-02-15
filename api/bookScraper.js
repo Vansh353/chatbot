@@ -1,26 +1,39 @@
+// api/fetchBookInfo.js
 
-
-const fetch = require('node-fetch');
-const { URLSearchParams } = require('url');
-const { json } = require('micro');
+const fetch = require("node-fetch");
 
 async function fetchBookInfo(bookTitle) {
-  const searchParams = new URLSearchParams();
-  searchParams.append('book_title', bookTitle);
+  const searchUrl = `https://www.goodreads.com/search?q=${bookTitle.replace(
+    " ",
+    "+"
+  )}`;
+  const response = await fetch(searchUrl);
+  const body = await response.text();
 
-  const response = await fetch(`http://your-flask-backend-url/book_info?${searchParams.toString()}`);
-  const data = await response.json();
+  // Parsing the HTML response to extract book URL and description
+  const descriptionMatch = body.match(
+    /<div data-testid="description">(.*?)<\/div>/s
+  );
+  const bookUrlMatch = body.match(/<a class="bookTitle" href="(.*?)"/);
 
-  return data;
+  const description = descriptionMatch ? descriptionMatch[1].trim() : "";
+  const bookUrl = bookUrlMatch ? bookUrlMatch[1] : "";
+
+  return { description, bookUrl };
 }
 
 module.exports = async (req, res) => {
-  if (req.method === 'GET') {
-    const { book_title } = req.query;
-    const bookInfo = await fetchBookInfo(book_title);
-    res.json(bookInfo);
+  if (req.method === "POST") {
+    const { bookTitle } = req.body;
+
+    try {
+      const { description, bookUrl } = await fetchBookInfo(bookTitle);
+      res.json({ description, bookUrl });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
   } else {
-    res.statusCode = 405;
-    res.end();
+    res.status(405).end();
   }
 };

@@ -36,12 +36,18 @@ def fetch_book_info(book_title):
 
     return description, book_url
 
-# This main function will not be used in the Flask application
-# Instead, the functionality will be integrated into the Flask route
-# You can keep it for testing purposes outside of Flask
-# But in production, it's not necessary
-def main():
-    pass
-
 if __name__ == "__main__":
-    main()
+    book_title = input("Enter the title of the book: ")
+    description, book_url = fetch_book_info(book_title)
+    
+    if description:
+        print("Here is a brief summary of the book:")
+        print(description) 
+   
+    else:
+        print("Sorry, I couldn't find a description for that book.")
+        
+    if book_url:
+        print("You can find more information about the book here:", book_url)
+    else:
+        print("Sorry, I couldn't find a link for that book.")

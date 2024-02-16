@@ -36,59 +36,12 @@ def fetch_book_info(book_title):
 
     return description, book_url
 
+# This main function will not be used in the Flask application
+# Instead, the functionality will be integrated into the Flask route
+# You can keep it for testing purposes outside of Flask
+# But in production, it's not necessary
 def main():
-    book_title = input("Enter the title of the book: ")
-    description, book_url = fetch_book_info(book_title)
-    
-    if description:
-        print("Here is a brief summary of the book:")
-        print(description) 
-   
-    else:
-        print("Sorry, I couldn't find a description for that book.")
-        
-    if book_url:
-        print("You can find more information about the book here:", book_url)
-    else:
-        print("Sorry, I couldn't find a link for that book.")
-    
-    # Add more custom responses based on the description
-    if "mystery" in description.lower():
-        print("Looks like this book is a mystery! Enjoy the thrill of solving it!")
-    elif "romance" in description.lower():
-        print("Ah, a romantic tale! Prepare to be swept off your feet!")
-    elif "adventure" in description.lower():
-        print("An adventurous journey awaits! Get ready for an exciting ride!")
-    elif "fantasy" in description.lower():
-        print("Welcome to a world of fantasy and magic! Let your imagination soar!")
-    elif "inspirational" in description.lower():
-        print("Prepare to be inspired! This book is sure to uplift your spirits!")
-    
-    elif "suspenseful" in description.lower():
-        print("Get ready for a suspenseful and thrilling ride!")
-    elif "heartwarming" in description.lower():
-        print("This heartwarming tale will leave you with a smile!")
-    elif "thought-provoking" in description.lower():
-        print("Prepare to delve into deep thoughts and reflections!")
-    elif "humorous" in description.lower():
-        print("Get ready to laugh out loud with this humorous adventure!")
-    elif "captivating" in description.lower():
-        print("Get ready to be captivated from beginning to end!")
-   
-    
-    # More custom responses based on themes or elements found in the description
-    elif "epic" in description.lower():
-        print("Embark on an epic journey with this book!")
-    elif "gripping" in description.lower():
-        print("Hold on tight! This gripping tale will keep you on the edge of your seat!")
-    elif "emotional" in description.lower():
-        print("Prepare for an emotional rollercoaster ride!")
-    elif "enchanting" in description.lower():
-        print("Experience the enchantment of this mesmerizing story!")
-    elif "mind-bending" in description.lower():
-        print("Get ready for a mind-bending adventure that will challenge your perceptions!")
-    else:
-        print("Immerse yourself in the world of this book and let it transport you!")
+    pass
 
 if __name__ == "__main__":
     main()

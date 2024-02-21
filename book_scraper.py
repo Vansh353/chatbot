@@ -1,4 +1,3 @@
-import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -14,10 +13,7 @@ def fetch_book_info(book_title):
     options.add_argument("--disable-gpu")
     options.add_argument("--no-sandbox")
 
-    # Set the PATH environment variable to include the directory containing chromedriver
-    os.environ["PATH"] += ":/home/vansh/.cache/selenium/chromedriver/linux64/121.0.6167.184/"
-
-    # Create a WebDriver instance
+    # Create a WebDriver instance without specifying executable_path
     driver = webdriver.Chrome(options=options)
 
     try:
@@ -41,19 +37,3 @@ def fetch_book_info(book_title):
         driver.quit()
 
     return description, book_url
-
-if __name__ == "__main__":
-    book_title = input("Enter the title of the book: ")
-    description, book_url = fetch_book_info(book_title)
-    
-    if description:
-        print("Here is a brief summary of the book:")
-        print(description) 
-   
-    else:
-        print("Sorry, I couldn't find a description for that book.")
-        
-    if book_url:
-        print("You can find more information about the book here:", book_url)
-    else:
-        print("Sorry, I couldn't find a link for that book.")

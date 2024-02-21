@@ -1,18 +1,22 @@
-<!-- templates/result.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Book Search Result</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Scraper Result</title>
 </head>
 <body>
-    <h1>Book Search Result</h1>
+    <h1>Book Scraper Result</h1>
     {% if description %}
-        <p>Description: {{ description }}</p>
-        <p>Book URL: <a href="{{ book_url }}">{{ book_url }}</a></p>
+        <p>{{ description }}</p>
+        {% if book_url %}
+            <p>You can find more information about the book <a href="{{ book_url }}" target="_blank">here</a>.</p>
+        {% endif %}
     {% elif error %}
-        <p>Error: {{ error }}</p>
+        <p>{{ error }}</p>
     {% else %}
-        <p>No information available.</p>
+        <p>Sorry, no information available for this book.</p>
     {% endif %}
+    <p><a href="/">Back to search</a></p>
 </body>
 </html>

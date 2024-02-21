@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Scraper Result</title>
+    <title>Book Scraper</title>
 </head>
 <body>
-    <h1>Book Scraper Result</h1>
-    {% if description %}
-        <p>{{ description }}</p>
-        <p>You can find more information about the book <a href="{{ book_url }}">here</a>.</p>
-    {% elif error %}
-        <p>{{ error }}</p>
-    {% endif %}
+    <h1>Book Scraper</h1>
+    <form method="POST" action="/">
+        <label for="book_title">Enter the title of the book:</label>
+        <input type="text" id="book_title" name="book_title" required>
+        <button type="submit">Search</button>
+    </form>
 </body>
 </html>

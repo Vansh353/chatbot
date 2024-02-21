@@ -64,7 +64,7 @@ paramiko==2.6.0
 pexpect==4.6.0
 Pillow==7.0.0
 proto-plus==1.23.0
-protobuf==3.20.3
+
 pyasn1==0.5.1
 pyasn1-modules==0.3.0
 pycairo==1.16.2
@@ -114,3 +114,8 @@ werkzeug==3.0.1
 wsproto==1.2.0
 xkit==0.0.0
 zipp==3.17.0
+# requirements.txt
+# requirements.txt
+protobuf>=3.19.5,<3.20.0 or protobuf>=3.20.2,<4.0.0dev
+
+

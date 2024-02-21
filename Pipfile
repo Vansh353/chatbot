@@ -4,6 +4,10 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+# Pipfile
+
+protobuf = ">=3.20.2,<4.0.0.dev"
+
 apturl = "==0.5.2"
 attrs = "==23.2.0"
 bcrypt = "==3.1.7"
@@ -70,7 +74,7 @@ paramiko = "==2.6.0"
 pexpect = "==4.6.0"
 pillow = "==7.0.0"
 proto-plus = "==1.23.0"
-protobuf = "==3.20.3"
+
 pyasn1 = "==0.5.1"
 pyasn1-modules = "==0.3.0"
 pycairo = "==1.16.2"

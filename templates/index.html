@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Book Search</title>
-  </head>
-  <body>
-    <h1>Enter the title of the book</h1>
-    <form action="/" method="POST">
-      <input type="text" name="book_title" placeholder="Enter book title" />
-      <button type="submit">Search</button>
-    </form>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Scraper Result</title>
+</head>
+<body>
+    <h1>Book Scraper Result</h1>
+    {% if description %}
+        <p>{{ description }}</p>
+        <p>You can find more information about the book <a href="{{ book_url }}">here</a>.</p>
+    {% elif error %}
+        <p>{{ error }}</p>
+    {% endif %}
+</body>
 </html>

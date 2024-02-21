@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from book_scraper import fetch_book_info  # Import the fetch_book_info function from book_scraper.py
+from book_scraper import fetch_book_info
 
 app = Flask(__name__)
 
@@ -7,7 +7,7 @@ app = Flask(__name__)
 def index():
     if request.method == 'POST':
         book_title = request.form['book_title']
-        description, book_url = fetch_book_info(book_title)  # Call the fetch_book_info function
+        description, book_url = fetch_book_info(book_title)
         if description:
             return render_template('result.html', description=description, book_url=book_url)
         else:

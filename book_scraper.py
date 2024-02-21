@@ -1,4 +1,3 @@
-
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -9,11 +8,16 @@ def fetch_book_info(book_title):
     """
     Fetch book description and URL of the book page from the provided Goodreads book URL using Selenium.
     """
+    # Specify the path to ChromeDriver
+    chrome_driver_path = '/home/vansh/.cache/selenium/chromedriver/linux64/121.0.6167.184/chromedriver'
+
     options = Options()
     options.add_argument("--headless")  # Run Chrome in headless mode
     options.add_argument("--disable-gpu")
     options.add_argument("--no-sandbox")
-    driver = webdriver.Chrome(options=options)  # Ensure you have chromedriver installed and in PATH
+    
+    # Create a WebDriver instance with the specified ChromeDriver path and options
+    driver = webdriver.Chrome(executable_path=chrome_driver_path, options=options)
 
     try:
         # Construct the Goodreads search URL

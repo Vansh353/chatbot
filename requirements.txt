@@ -116,6 +116,7 @@ xkit==0.0.0
 zipp==3.17.0
 # requirements.txt
 # requirements.txt
-protobuf>=3.19.5,<3.20.0 or protobuf>=3.20.2,<4.0.0dev
+
+protobuf>=3.19.5,<3.20.0,protobuf>=3.20.2,<4.0.0dev
 
 
